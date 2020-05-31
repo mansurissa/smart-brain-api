@@ -36,8 +36,8 @@ app.get("/", (req, res) => {
 app.post("/signin", (req, res) => { signin.signinHandler(req, res, db, bcrypt) });
 app.post('/register', (req, res) => { rejester.rejesterHandler(req, res, db, bcrypt) });
 app.get('/profile/:id', (req, res) => { profile.profileHandler(req, res, db) });
-app.put('/image', (req, res) => { image.imageHandler(req, res,db) });
+app.put('/image', (req, res) => { image.imageHandler(req, res, db) });
 
-app.listen(3005, () => {
-    console.log('listening')
+app.listen(process.env.PORT || 3005, () => {
+    console.log(`listening on port${process.env.PORT}`)
 })
