@@ -16,7 +16,7 @@ const db = knex({
         user: 'postgres',
         password: 'pass2database',
         database: 'smart_brain',
-        port: '5432'
+
 
     }
 });
