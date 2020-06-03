@@ -12,7 +12,6 @@ const image = require('./controllers/image')
 const db = knex({
     client: 'pg',
     connection: {
-        host: 'postgresql-solid-08153',
         connectString: process.env.DATABASE_URL,
         ssl: true
 
@@ -38,4 +37,5 @@ app.put('/image', (req, res) => { image.imageHandler(req, res, db) });
 
 app.listen(process.env.PORT || 3005, () => {
     console.log(`listening on port${process.env.PORT}`)
+    console.log(process.env)
 })
