@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
@@ -11,7 +12,8 @@ const image = require('./controllers/image')
 
 const db = knex(
     {
-        connectionString: process.env.DATABASE_URL,
+        client: 'postgres',
+        connection: process.env.DATABASE_URL,
         ssl: {
             rejectUnauthorized: false
         }
@@ -37,5 +39,4 @@ app.put('/image', (req, res) => { image.imageHandler(req, res, db) });
 
 app.listen(process.env.PORT || 3005, () => {
     console.log(`listening on port${process.env.PORT}`)
-    console.log(process.env)
 })
