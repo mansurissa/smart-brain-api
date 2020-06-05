@@ -7,14 +7,19 @@ const pg = require('pg');
 const rejester = require('./controllers/rejester');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
-const image = require('./controllers/image')
+const image = require('./controllers/image');
+const dotenv = require('dotenv')
 
+
+dotenv.config();
 const db = knex(
+
     {
-        connectionString: process.env.DATABASE_URL,
+        connection: process.env.DATABASE_URL,
         ssl: {
             rejectUnauthorized: false
-        }
+        },
+        client: "postgres"
     }
 );
 
@@ -37,5 +42,5 @@ app.put('/image', (req, res) => { image.imageHandler(req, res, db) });
 
 app.listen(process.env.PORT || 3005, () => {
     console.log(`listening on port${process.env.PORT}`)
-    console.log(process.env)
+
 })
