@@ -16,10 +16,6 @@ dotenv.config();
 const db = knex(
 
     {
-<<<<<<< HEAD
-=======
-        client: 'postgres',
->>>>>>> 7f58f4c5e76af5c6eb643d7578214663dcc98992
         connection: process.env.DATABASE_URL,
         ssl: {
             rejectUnauthorized: false
@@ -47,8 +43,4 @@ app.put('/image', (req, res) => { image.imageHandler(req, res, db) });
 
 app.listen(process.env.PORT || 3005, () => {
     console.log(`listening on port${process.env.PORT}`)
-<<<<<<< HEAD
-
-=======
->>>>>>> 7f58f4c5e76af5c6eb643d7578214663dcc98992
 })
